@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 class="my-4 text-center">Enciclopedia</h1>
+  <div>
+    <input type="text" placeholder="Search term" class="col-md-10 offset-md-1 py-2" #searchBox id="search-box"
+      (input)="search(searchBox.value)" />
+  </div>
+
+  <div *ngIf="nWords" class="my-2 text-center font-italic">
+    {{nWords}} terms found
+  </div>
+
+  <ul class="ul col-md-10 offset-md-1">
+    <li class="li" *ngFor="let word of words">
+      <a routerLink="/word/{{word}}">
+        {{word}}
+      </a>
+    </li>
+  </ul>
+
+  <nav *ngIf="nWords" class="pt-4">
+    <ul class="pagination justify-content-center">
+
+      <li *ngFor="let dummy of [].constructor(nPages); let i = index" class="page-item"
+        [ngClass]="{'active': i+1 == page}">
+        <a class="page-link" role="button" (click)="goToPage(i+1)">{{i+1}}</a>
+      </li>
+
+    </ul>
+  </nav>
+
+</div>
