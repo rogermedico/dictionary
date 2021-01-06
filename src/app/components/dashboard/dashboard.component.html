@@ -5,33 +5,47 @@
       (input)="search(searchBox.value)" />
   </div>
 
-  <div *ngIf="nWords" class="my-2 text-center font-italic">
-    {{nWords}} terms found
-  </div>
+  <ng-container *ngIf="nWords; else noSearch">
+    <div class="my-2 text-center font-italic">
+      {{nWords}} terms found
+    </div>
 
-  <ul class="ul col-8 offset-2 col-md-10 offset-md-1">
-    <li class="li" *ngFor="let word of words">
-      <a routerLink="/word/{{word}}">
-        {{word}}
-      </a>
-    </li>
-  </ul>
-
-  <nav *ngIf="nWords" class="pt-4">
-    <ul class="pagination justify-content-center">
-      <li *ngIf="pagination.nPages > 5" class="page-item" [ngClass]="{'disabled': pagination.page - 1 <= 0}">
-        <a class="page-link" role="button" (click)="goToPage(pagination.page-1)">Previous</a>
-      </li>
-
-      <li *ngFor="let p of pagination.pages" class="page-item" [ngClass]="{'active': p == pagination.page}">
-        <a class="page-link" role="button" (click)="goToPage(p)">{{p}}</a>
-      </li>
-
-      <li *ngIf="pagination.nPages > 5" class="page-item"
-        [ngClass]="{'disabled': pagination.page + 1 > pagination.nPages}">
-        <a class="page-link" role="button" (click)="goToPage(pagination.page+1)">Next</a>
+    <ul class="ul col-8 offset-2 col-md-10 offset-md-1">
+      <li class="li" *ngFor="let word of words">
+        <a routerLink="/word/{{word}}">
+          {{word}}
+        </a>
       </li>
     </ul>
-  </nav>
+
+    <nav class="pt-4">
+      <ul class="pagination justify-content-center">
+        <li *ngIf="pagination.nPages > 5" class="page-item" [ngClass]="{'disabled': pagination.page - 1 <= 0}">
+          <a class="page-link" role="button" (click)="goToPage(pagination.page-1)">Previous</a>
+        </li>
+
+        <li *ngFor="let p of pagination.pages" class="page-item" [ngClass]="{'active': p == pagination.page}">
+          <a class="page-link" role="button" (click)="goToPage(p)">{{p}}</a>
+        </li>
+
+        <li *ngIf="pagination.nPages > 5" class="page-item"
+          [ngClass]="{'disabled': pagination.page + 1 > pagination.nPages}">
+          <a class="page-link" role="button" (click)="goToPage(pagination.page+1)">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </ng-container>
+
+  <ng-template #noSearch>
+    <div *ngIf="lastSearches.length != 0" class="my-4 text-center font-italic">
+      Last searches:
+      <ng-container *ngFor="let s of lastSearches;let i = index">
+        <a routerLink="/word/{{s}}">{{s}}</a>
+        <ng-container *ngIf="i < lastSearches.length -2">, </ng-container>
+        <ng-container *ngIf="i == lastSearches.length -2"> and </ng-container>
+        <ng-container *ngIf="i == lastSearches.length -1">.</ng-container>
+      </ng-container>
+    </div>
+  </ng-template>
 
 </div>

@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject, Subscription } from 'rxjs';
+import { of, Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs/operators';
 import { Pagination } from 'src/app/models/pagination.interface';
 import { SearchResult } from 'src/app/models/searchResult.interface';
+import { LastSearchesService } from 'src/app/services/last-searches.service';
 import { WordsService } from 'src/app/services/words.service';
 
 @Component({
@@ -25,20 +26,30 @@ export class DashboardComponent implements OnInit, OnDestroy {
   };
   searchTermSubscription: Subscription;
   goToPageSubscription: Subscription;
+  lastSearches: string[];
 
-  constructor(private ws: WordsService) { }
+  constructor(private ws: WordsService, private ls: LastSearchesService) { }
 
   ngOnInit(): void {
     this.searchTermSubscription = this.searchTerm.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      filter((term: string) => term.length >= 2),
-      switchMap((term: string) => this.ws.searchWords(term))
+      switchMap((term: string) => {
+        if (term.length >= 2) return this.ws.searchWords(term);
+        else return of(undefined);
+      })
     ).subscribe((searchResult: SearchResult) => {
-      this.words = searchResult.results.data;
-      this.nWords = searchResult.results.total;
-      this.doPagination(searchResult);
+      if (searchResult) {
+        this.words = searchResult.results.data;
+        this.nWords = searchResult.results.total;
+        this.doPagination(searchResult);
+      }
+      else {
+        this.words = [];
+        this.nWords = 0;
+      }
     });
+    this.lastSearches = this.ls.load();
   }
 
   ngOnDestroy(): void {

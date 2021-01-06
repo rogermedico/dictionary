@@ -1,4 +1,6 @@
-<div *ngIf="word" class="container">
+<div *ngIf="word" class="container position-relative">
+  <div class="home-div"><a routerLink="/">Home</a></div>
+
   <h1 class="my-4 text-center">{{word.word | titlecase}} </h1>
   <ng-container *ngIf="word.pronunciation">
     <p *ngIf="pronunciation == 'object'; else pronunciationString">
@@ -38,11 +40,12 @@
     </p>
   </ng-container>
 
-  <ng-container *ngIf="word.results">
+  <ng-container *ngIf="word.results && word.results.length != 0">
     <p class="font-weight-bold">Results:</p>
     <ol>
       <li class="mb-3" *ngFor="let def of word.results">
-        <p class="mb-0">(<span class="font-italic">{{def.partOfSpeech}}</span>) {{def.definition}}.</p>
+        <p class="mb-0"><span *ngIf="def.partOfSpeech">(<span class="font-italic">{{def.partOfSpeech}}</span>)</span>
+          {{def.definition}}.</p>
         <p class="mb-0" *ngIf="def.examples">
           Examples:
           <ng-container *ngIf="def.examples">
