@@ -1,10 +1,12 @@
 export interface WordResult {
   definition: string,
   examples: string[],
-  hasTypes: string[],
   partOfSpeech: string,
   synonyms: string[],
-  typeOf: string[]
+  typeOf: string[],
+  hasTypes: string[],
+  partOf: string[],
+  hasParts: string[]
 }
 
 export interface Word {

@@ -41,14 +41,16 @@
   <ng-container *ngIf="word.results">
     <p class="font-weight-bold">Results:</p>
     <ol>
-      <li *ngFor="let def of word.results">
-        <p class="mb-0">(<span class="font-italic">{{def.partOfSpeech}}</span>) {{def.definition}}.
+      <li class="mb-3" *ngFor="let def of word.results">
+        <p class="mb-0">(<span class="font-italic">{{def.partOfSpeech}}</span>) {{def.definition}}.</p>
+        <p class="mb-0" *ngIf="def.examples">
+          Examples:
           <ng-container *ngIf="def.examples">
             <span class="font-italic" *ngFor="let example of def.examples; let i = index">{{example}}.
             </span>
           </ng-container>
         </p>
-        <p *ngIf="def.synonyms">
+        <p class="mb-0" *ngIf="def.synonyms">
           Synonyms:
           <ng-container *ngFor="let s of def.synonyms;let i = index">
             <a routerLink="/word/{{s}}">{{s}}</a>
@@ -57,6 +59,45 @@
             <ng-container *ngIf="i == def.synonyms.length -1">.</ng-container>
           </ng-container>
         </p>
+        <ul>
+          <li *ngIf="def.typeOf">
+            a <a routerLink="/word/{{word.word}}">{{word.word}}</a> is a <span class="font-weight-bold">type of </span>
+            <ng-container *ngFor="let s of def.typeOf;let i = index">
+              <a routerLink="/word/{{s}}">{{s}}</a>
+              <ng-container *ngIf="i < def.typeOf.length -2">, </ng-container>
+              <ng-container *ngIf="i == def.typeOf.length -2"> and </ng-container>
+              <ng-container *ngIf="i == def.typeOf.length -1">.</ng-container>
+            </ng-container>
+          </li>
+          <li *ngIf="def.hasTypes">
+            a <a routerLink="/word/{{word.word}}">{{word.word}}</a> <span class="font-weight-bold"> has types </span>
+            <ng-container *ngFor="let s of def.hasTypes;let i = index">
+              <a routerLink="/word/{{s}}">{{s}}</a>
+              <ng-container *ngIf="i < def.hasTypes.length -2">, </ng-container>
+              <ng-container *ngIf="i == def.hasTypes.length -2"> and </ng-container>
+              <ng-container *ngIf="i == def.hasTypes.length -1">.</ng-container>
+            </ng-container>
+          </li>
+
+          <li *ngIf="def.partOf">
+            a <a routerLink="/word/{{word.word}}">{{word.word}}</a> is a <span class="font-weight-bold">part of </span>
+            <ng-container *ngFor="let s of def.partOf;let i = index">
+              <a routerLink="/word/{{s}}">{{s}}</a>
+              <ng-container *ngIf="i < def.partOf.length -2">, </ng-container>
+              <ng-container *ngIf="i == def.partOf.length -2"> and </ng-container>
+              <ng-container *ngIf="i == def.partOf.length -1">.</ng-container>
+            </ng-container>
+          </li>
+          <li *ngIf="def.hasParts">
+            a <a routerLink="/word/{{word.word}}">{{word.word}}</a> <span class="font-weight-bold"> has parts </span>
+            <ng-container *ngFor="let s of def.hasParts;let i = index">
+              <a routerLink="/word/{{s}}">{{s}}</a>
+              <ng-container *ngIf="i < def.hasParts.length -2">, </ng-container>
+              <ng-container *ngIf="i == def.hasParts.length -2"> and </ng-container>
+              <ng-container *ngIf="i == def.hasParts.length -1">.</ng-container>
+            </ng-container>
+          </li>
+        </ul>
       </li>
     </ol>
   </ng-container>
