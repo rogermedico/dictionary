@@ -11,8 +11,10 @@ export interface Word {
   word: string,
   results: WordResult[],
   pronunciation?: {
-    all: string
-  },
+    all: string,
+    noun?: string,
+    verb?: string
+  } | string,
   syllables?: {
     count: number,
     list: string[]

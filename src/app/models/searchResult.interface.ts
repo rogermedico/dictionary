@@ -1,7 +1,7 @@
 export interface SearchResult {
   query: {
     limit: number,
-    page: number
+    page: string
   },
   results: {
     total: number,

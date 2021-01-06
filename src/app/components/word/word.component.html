@@ -1,3 +1,34 @@
 <div *ngIf="word" class="container">
   <h1 class="my-4 text-center">{{word.word}}</h1>
+  <ng-container *ngIf="word.pronunciation">
+    <p *ngIf="pronunciation == 'object'; else pronunciationString">
+      <ng-container *ngIf="word.pronunciation.noun && word.pronunciation.verb">
+        <span class="font-weight-bold">Pronunciation: </span> <span
+          class="font-italic">{{word.pronunciation.all}}</span>
+        in general, <span class="font-italic">{{word.pronunciation.noun}}</span> as a noun and <span
+          class="font-italic">{{word.pronunciation.verb}}</span> as a verb.
+      </ng-container>
+      <ng-container *ngIf="word.pronunciation.noun && !word.pronunciation.verb">
+        <span class="font-weight-bold">Pronunciation: </span> <span
+          class="font-italic">{{word.pronunciation.all}}</span>
+        in general and <span class="font-italic">{{word.pronunciation.noun}}</span> as a noun.
+      </ng-container>
+      <ng-container *ngIf="!word.pronunciation.noun && word.pronunciation.verb">
+        <span class="font-weight-bold">Pronunciation: </span> <span
+          class="font-italic">{{word.pronunciation.all}}</span>
+        in general and <span class="font-italic">{{word.pronunciation.verb}}</span> as a verb.
+      </ng-container>
+      <ng-container *ngIf="!word.pronunciation.noun && !word.pronunciation.verb">
+        <span class="font-weight-bold">Pronunciation: </span> <span
+          class="font-italic">{{word.pronunciation.all}}</span>.
+      </ng-container>
+    </p>
+    <ng-template #pronunciationString>
+      <p><span class="font-weight-bold">Pronunciation: </span> <span class="font-italic">{{word.pronunciation}}</span>.
+      </p>
+    </ng-template>
+  </ng-container>
+  <ng-container *ngIf="word.syllables">
+    <p><span class="font-weight-bold">Syllables: </span> {{word.syllables.count}} </p>
+  </ng-container>
 </div>

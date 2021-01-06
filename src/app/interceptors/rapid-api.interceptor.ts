@@ -22,8 +22,6 @@ export class RapidApiInterceptor implements HttpInterceptor {
       }
     });
 
-    console.log('requeset', rapidApiRequest)
-
     return next.handle(rapidApiRequest);
   }
 }

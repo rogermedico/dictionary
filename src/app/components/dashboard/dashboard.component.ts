@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, of, Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs/operators';
+import { Pagination } from 'src/app/models/pagination.interface';
 import { SearchResult } from 'src/app/models/searchResult.interface';
 import { WordsService } from 'src/app/services/words.service';
 
@@ -15,9 +16,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
   term: string;
   words: string[];
   nWords: number;
-  page: number;
-  nPages: number;
+  pagination: Pagination = {
+    page: -1,
+    nPages: -1,
+    startPage: -1,
+    pages: [],
+    endPage: -1
+  };
   searchTermSubscription: Subscription;
+  goToPageSubscription: Subscription;
 
 
   constructor(private ws: WordsService) { }
@@ -29,22 +36,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
       filter((term: string) => term.length >= 2),
       switchMap((term: string) => this.ws.searchWords(term))
     ).subscribe((searchResult: SearchResult) => {
-      console.log('SearchResult:', searchResult);
       this.words = searchResult.results.data;
       this.nWords = searchResult.results.total;
-      this.page = searchResult.query.page;
-      if (searchResult.results.total > 100) {
-        this.nPages = Math.floor(searchResult.results.total / 100);
-        if (searchResult.results.total % 100 !== 0) this.nPages++;
-      }
-      else {
-        this.nPages = 0;
-      }
+      this.doPagination(searchResult);
     });
   }
 
   ngOnDestroy(): void {
     this.searchTermSubscription.unsubscribe();
+    if (this.searchTermSubscription) this.searchTermSubscription.unsubscribe();
   }
 
   search(term: string) {
@@ -52,12 +52,46 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.searchTerm.next(term);
   }
 
-  goToPage(page: any) {
-    this.ws.searchWords(this.term, page).subscribe((searchResult: SearchResult) => {
-      console.log('SearchResult:', searchResult);
+  goToPage(page: number) {
+    this.goToPageSubscription = this.ws.searchWords(this.term, page).subscribe((searchResult: SearchResult) => {
       this.words = searchResult.results.data;
-      this.page = searchResult.query.page;
+      this.doPagination(searchResult);
     });
+  }
+
+  doPagination(searchResult: SearchResult) {
+    const maxPages = 5;
+    const pagesToBorder = Math.floor(maxPages / 2);
+
+    this.pagination.page = parseInt(searchResult.query.page);
+    if (searchResult.results.total > 100) this.pagination.nPages = Math.ceil(searchResult.results.total / 100);
+    else this.pagination.nPages = 0;
+
+    /* less pages than the max pages that we want to show */
+    if (this.pagination.nPages <= maxPages) {
+      this.pagination.startPage = 1;
+      this.pagination.pages = [...Array(this.pagination.nPages + 1).keys()].slice(1);
+      this.pagination.endPage = this.pagination.nPages;
+    }
+    /* more pages than the max pages that we want to show */
+    else {
+      /* actual page near to start */
+      if (this.pagination.page <= pagesToBorder) {
+        this.pagination.startPage = 1;
+        this.pagination.endPage = maxPages;
+      }
+      /* actual page near to end */
+      else if (this.pagination.page + pagesToBorder >= this.pagination.nPages) {
+        this.pagination.startPage = this.pagination.nPages - maxPages + 1;
+        this.pagination.endPage = this.pagination.nPages;
+      }
+      /* actual page in the middle */
+      else {
+        this.pagination.startPage = this.pagination.page - pagesToBorder;
+        this.pagination.endPage = this.pagination.page + pagesToBorder;
+      }
+      this.pagination.pages = [...Array(maxPages).keys()].map(i => this.pagination.startPage + i)
+    }
   }
 
 }

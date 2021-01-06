@@ -11,6 +11,7 @@ import { WordsService } from 'src/app/services/words.service';
 export class WordComponent implements OnInit {
 
   word: Word;
+  pronunciation: string;
 
   constructor(private ws: WordsService, private ar: ActivatedRoute, private router: Router) { }
 
@@ -21,6 +22,10 @@ export class WordComponent implements OnInit {
       if (!word) return this.router.navigateByUrl('/');
       else this.word = word;
       console.log(word);
+
+      if (typeof word.pronunciation === 'string') this.pronunciation = 'string';
+      else this.pronunciation = 'object';
+
     })
   }
 

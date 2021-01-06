@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="my-4 text-center">Enciclopedia</h1>
+  <h1 class="my-4 text-center">Encyclopedia</h1>
   <div>
     <input type="text" placeholder="Search term" class="col-md-10 offset-md-1 py-2" #searchBox id="search-box"
       (input)="search(searchBox.value)" />
@@ -9,7 +9,7 @@
     {{nWords}} terms found
   </div>
 
-  <ul class="ul col-md-10 offset-md-1">
+  <ul class="ul col-8 offset-2 col-md-10 offset-md-1">
     <li class="li" *ngFor="let word of words">
       <a routerLink="/word/{{word}}">
         {{word}}
@@ -19,12 +19,18 @@
 
   <nav *ngIf="nWords" class="pt-4">
     <ul class="pagination justify-content-center">
-
-      <li *ngFor="let dummy of [].constructor(nPages); let i = index" class="page-item"
-        [ngClass]="{'active': i+1 == page}">
-        <a class="page-link" role="button" (click)="goToPage(i+1)">{{i+1}}</a>
+      <li *ngIf="pagination.nPages > 5" class="page-item" [ngClass]="{'disabled': pagination.page - 1 <= 0}">
+        <a class="page-link" role="button" (click)="goToPage(pagination.page-1)">Previous</a>
       </li>
 
+      <li *ngFor="let p of pagination.pages" class="page-item" [ngClass]="{'active': p == pagination.page}">
+        <a class="page-link" role="button" (click)="goToPage(p)">{{p}}</a>
+      </li>
+
+      <li *ngIf="pagination.nPages > 5" class="page-item"
+        [ngClass]="{'disabled': pagination.page + 1 > pagination.nPages}">
+        <a class="page-link" role="button" (click)="goToPage(pagination.page+1)">Next</a>
+      </li>
     </ul>
   </nav>
 
