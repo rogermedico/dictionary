@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, of, Subject, Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs/operators';
 import { Pagination } from 'src/app/models/pagination.interface';
 import { SearchResult } from 'src/app/models/searchResult.interface';
@@ -25,7 +25,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   };
   searchTermSubscription: Subscription;
   goToPageSubscription: Subscription;
-
 
   constructor(private ws: WordsService) { }
 

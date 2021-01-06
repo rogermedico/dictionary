@@ -16,17 +16,14 @@ export class WordComponent implements OnInit {
   constructor(private ws: WordsService, private ar: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    const word = this.ar.snapshot.paramMap.get('word');
-
-    this.ws.getWord(word).subscribe(word => {
-      if (!word) return this.router.navigateByUrl('/');
-      else this.word = word;
-      console.log(word);
-
-      if (typeof word.pronunciation === 'string') this.pronunciation = 'string';
-      else this.pronunciation = 'object';
-
+    this.ar.params.subscribe(params => {
+      this.ws.getWord(params.word).subscribe(word => {
+        console.log('word', word);
+        if (!word) return this.router.navigateByUrl('/');
+        else this.word = word;
+        if (typeof word.pronunciation === 'string') this.pronunciation = 'string';
+        else this.pronunciation = 'object';
+      })
     })
   }
-
 }

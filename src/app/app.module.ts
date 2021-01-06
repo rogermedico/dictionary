@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RapidApiInterceptor } from './interceptors/rapid-api.interceptor';
-import { WordsService } from './services/words.service';
 import { WordComponent } from './components/word/word.component';
 
 @NgModule({
