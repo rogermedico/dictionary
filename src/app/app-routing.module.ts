@@ -4,14 +4,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WordComponent } from './components/word/word.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
+
   { path: 'word/:word', component: WordComponent },
+  { path: '', component: DashboardComponent },
   { path: '**', component: DashboardComponent }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
+    RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
