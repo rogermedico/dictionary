@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatNativeDateModule } from '@angular/material/core';
 
 // import { MatCheckboxModule } from '@angular/material/checkbox';
-// import { MatButtonModule } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 // import { MatInputModule } from '@angular/material/input';
 // import { MatAutocompleteModule } from '@angular/material/autocomplete';
 // import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -14,7 +14,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 // import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 // import { MatMenuModule } from '@angular/material/menu';
 // import { MatSidenavModule } from '@angular/material/sidenav';
-// import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 // import { MatListModule } from '@angular/material/list';
 // import { MatGridListModule } from '@angular/material/grid-list';
 // import { MatCardModule } from '@angular/material/card';
@@ -42,7 +42,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatNativeDateModule,
     // MatCheckboxModule,
     // MatCheckboxModule,
-    // MatButtonModule,
+    MatButtonModule,
     // MatInputModule,
     // MatAutocompleteModule,
     // MatDatepickerModule,
@@ -53,7 +53,7 @@ import { MatIconModule } from '@angular/material/icon';
     // MatSlideToggleModule,
     // MatMenuModule,
     // MatSidenavModule,
-    // MatToolbarModule,
+    MatToolbarModule,
     // MatListModule,
     // MatGridListModule,
     // MatCardModule,

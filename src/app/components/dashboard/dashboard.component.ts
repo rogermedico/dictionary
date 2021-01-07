@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   lastSearches: string[];
 
-  constructor(private ws: WordsService, private ls: LastSearchesService, private router: Router) { }
+  constructor(private ws: WordsService, private ls: LastSearchesService) { }
 
   ngOnInit(): void {
     this.searchTermSubscription = this.searchTerm.pipe(
@@ -106,12 +106,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }
       this.pagination.pages = [...Array(maxPages).keys()].map(i => this.pagination.startPage + i)
     }
-  }
-
-  randomWord() {
-    this.randomWordSubscription = this.ws.getRandomWord().subscribe(word => {
-      this.router.navigateByUrl('/word/' + word.word);
-    });
   }
 
 }

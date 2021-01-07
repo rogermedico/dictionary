@@ -1,1 +1,17 @@
+<mat-toolbar #toolbar color="primary" class="fixed mat-elevation-z8">
+  <div class="toolbar__brand">
+    <a class="toolbar__link" routerLink="/">
+      <button mat-button class="toolbar__brand__text mr-3">
+        <mat-icon aria-hidden="false" aria-label="Home">home</mat-icon>
+      </button>
+    </a>
+  </div>
+  <div class="toolbar__brand">
+    <a class="toolbar__link" [routerLink]="" (click)="randomWord()">
+      <button mat-button class="toolbar__brand__text">
+        <mat-icon aria-hidden="false" aria-label="Random word">shuffle</mat-icon>
+      </button>
+    </a>
+  </div>
+</mat-toolbar>
 <router-outlet></router-outlet>

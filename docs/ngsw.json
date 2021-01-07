@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1610038762414,
+  "timestamp": 1610041195269,
   "index": "/dictionary/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/dictionary/favicon.ico",
         "/dictionary/index.html",
-        "/dictionary/main.b7d84bf1520b3e141123.js",
+        "/dictionary/main.f8b24d464b1fe214f0df.js",
         "/dictionary/manifest.webmanifest",
         "/dictionary/polyfills.35a5ca1855eb057f016a.js",
         "/dictionary/runtime.acf0dec4155e77772545.js",
@@ -62,18 +62,18 @@
     }
   ],
   "hashTable": {
-    "/dictionary/assets/icons/icon-128x128.png": "11a0825d2c77c20fbd6f663dd68ec62ecb6100a2",
-    "/dictionary/assets/icons/icon-144x144.png": "504cf48799d6cc49373707c9372a2a1ef54679c4",
-    "/dictionary/assets/icons/icon-152x152.png": "31ac486604a799c49bfafcc974de6b833dff8e3e",
-    "/dictionary/assets/icons/icon-192x192.png": "c54171b8457059eeb14ade9c19fd5ebc23c8f1b4",
-    "/dictionary/assets/icons/icon-384x384.png": "916fd9f07c51cf34314eec5f13fdd7e17eb60af9",
-    "/dictionary/assets/icons/icon-512x512.png": "b7708b5feee7ed47589da2fbb91e3d70fc9791df",
-    "/dictionary/assets/icons/icon-72x72.png": "973cfc56c4d6e97f4f8b2c19861529a02ab2e47e",
-    "/dictionary/assets/icons/icon-96x96.png": "25db3136558f53683547fb3cfcad960c03a6549c",
+    "/dictionary/assets/icons/icon-128x128.png": "5cb6dc336eca06067830e760ef2150cd1f9f214c",
+    "/dictionary/assets/icons/icon-144x144.png": "8a7de378ac0634beedd758fb2eb36f84a5c89635",
+    "/dictionary/assets/icons/icon-152x152.png": "f744603dbc73ecddeba9b0bc60f1d088a37eb1cd",
+    "/dictionary/assets/icons/icon-192x192.png": "fb6205c1583d726a8cadd12dc156692267a341a3",
+    "/dictionary/assets/icons/icon-384x384.png": "c2c3b1422cc3ad005289eb36273bd6a71c52d45b",
+    "/dictionary/assets/icons/icon-512x512.png": "0f6c68e4f7b7a82660da046d7e55516ac7cefe62",
+    "/dictionary/assets/icons/icon-72x72.png": "e44459c3fd473fcc18de8efc0137236693171a11",
+    "/dictionary/assets/icons/icon-96x96.png": "6ae6c907dbc1286ffb16a5b39f352c5fdb9a7e68",
     "/dictionary/favicon.ico": "9cfb771e59fab54b6239b8734010862e56143955",
-    "/dictionary/index.html": "5bd080478930ec425d9120d3a71a23b45328f5d0",
-    "/dictionary/main.b7d84bf1520b3e141123.js": "031164ba1db5393cab0ae753f662595fe29c673e",
-    "/dictionary/manifest.webmanifest": "5d3fbd60203d95af9ebeba59276ce70001563149",
+    "/dictionary/index.html": "7e80578bdb87658341a3f2afc76a17b8ff066cb0",
+    "/dictionary/main.f8b24d464b1fe214f0df.js": "98e6685a4dcac3657f4eb621b46548010cbf39d8",
+    "/dictionary/manifest.webmanifest": "31ec15135d4857073f1bbd15514fea3a3ecbd79e",
     "/dictionary/polyfills.35a5ca1855eb057f016a.js": "578360d24ce37383f261c7ef63b1f822d28e8dde",
     "/dictionary/runtime.acf0dec4155e77772545.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "/dictionary/styles.57022c97380858fa24b2.css": "933afcc4aa754689ccb59c393edf29e0ee1e7679"

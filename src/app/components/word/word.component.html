@@ -1,14 +1,4 @@
 <div *ngIf="word" class="container position-relative">
-  <div class="menu-div">
-    <a routerLink="/">
-      <mat-icon class="mr-1" aria-hidden="false" aria-label="Home">home</mat-icon>
-    </a>
-    &nbsp;
-    <a [routerLink]="" (click)="randomWord()">
-      <mat-icon aria-hidden="false" aria-label="Random word">shuffle</mat-icon>
-    </a>
-  </div>
-
   <h1 class="my-4 text-center mat-display-2">{{word.word | titlecase}} </h1>
   <ng-container *ngIf="word.pronunciation">
     <p *ngIf="pronunciation == 'object'; else pronunciationString">

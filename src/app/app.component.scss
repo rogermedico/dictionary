@@ -1,0 +1,11 @@
+.toolbar__brand__text {
+  font-size: 1.4rem;
+}
+
+.toolbar__link {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    text-decoration: none;
+  }
+}
