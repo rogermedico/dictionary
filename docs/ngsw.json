@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1610041695945,
+  "timestamp": 1610042114091,
   "index": "/dictionary/index.html",
   "assetGroups": [
     {
@@ -71,7 +71,7 @@
     "/dictionary/assets/icons/icon-72x72.png": "e44459c3fd473fcc18de8efc0137236693171a11",
     "/dictionary/assets/icons/icon-96x96.png": "6ae6c907dbc1286ffb16a5b39f352c5fdb9a7e68",
     "/dictionary/favicon.ico": "9cfb771e59fab54b6239b8734010862e56143955",
-    "/dictionary/index.html": "7e80578bdb87658341a3f2afc76a17b8ff066cb0",
+    "/dictionary/index.html": "4dce1e37586f8ba34cf9286dff9d6da1e1c17a48",
     "/dictionary/main.f8b24d464b1fe214f0df.js": "98e6685a4dcac3657f4eb621b46548010cbf39d8",
     "/dictionary/manifest.webmanifest": "351d6823d78e803906c961cd336a0ccb27c06e1c",
     "/dictionary/polyfills.35a5ca1855eb057f016a.js": "578360d24ce37383f261c7ef63b1f822d28e8dde",
