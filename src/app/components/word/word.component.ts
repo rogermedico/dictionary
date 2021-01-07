@@ -42,10 +42,8 @@ export class WordComponent implements OnInit, OnDestroy {
 
   randomWord() {
     this.getRandomWordSubscription = this.ws.getRandomWord().subscribe(word => {
-      // this.word = word;
       this.router.navigateByUrl('/word/' + word.word);
     });
-
   }
 
 }

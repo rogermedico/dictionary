@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { of, Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs/operators';
 import { Pagination } from 'src/app/models/pagination.interface';
@@ -26,9 +27,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
   };
   searchTermSubscription: Subscription;
   goToPageSubscription: Subscription;
+  randomWordSubscription: Subscription;
+
   lastSearches: string[];
 
-  constructor(private ws: WordsService, private ls: LastSearchesService) { }
+  constructor(private ws: WordsService, private ls: LastSearchesService, private router: Router) { }
 
   ngOnInit(): void {
     this.searchTermSubscription = this.searchTerm.pipe(
@@ -55,6 +58,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.searchTermSubscription.unsubscribe();
     if (this.searchTermSubscription) this.searchTermSubscription.unsubscribe();
+    if (this.randomWordSubscription) this.randomWordSubscription.unsubscribe();
   }
 
   search(term: string) {
@@ -102,6 +106,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }
       this.pagination.pages = [...Array(maxPages).keys()].map(i => this.pagination.startPage + i)
     }
+  }
+
+  randomWord() {
+    this.randomWordSubscription = this.ws.getRandomWord().subscribe(word => {
+      this.router.navigateByUrl('/word/' + word.word);
+    });
   }
 
 }

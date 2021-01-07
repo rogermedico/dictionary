@@ -8,6 +8,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RapidApiInterceptor } from './interceptors/rapid-api.interceptor';
 import { WordComponent } from './components/word/word.component';
 
+/* material */
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from 'src/app/modules/material/material.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +21,9 @@ import { WordComponent } from './components/word/word.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [
     {
