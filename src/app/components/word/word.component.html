@@ -1,5 +1,5 @@
 <div *ngIf="word" class="container position-relative">
-  <div class="home-div"><a routerLink="/">Home</a>&nbsp;<a routerLink="" (click)="randomWord()">Random Word</a></div>
+  <div class="home-div"><a routerLink="/">Home</a>&nbsp;<a [routerLink]="" (click)="randomWord()">Random Word</a></div>
 
   <h1 class="my-4 text-center">{{word.word | titlecase}} </h1>
   <ng-container *ngIf="word.pronunciation">

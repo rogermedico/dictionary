@@ -37,14 +37,15 @@ export class WordComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.activatedRouteSubscription.unsubscribe();
     this.getWordSubscription.unsubscribe();
-    if (this.getRandomWordSubscription) this.getRandomWordSubscription.unsubscribe();
+    //if (this.getRandomWordSubscription) this.getRandomWordSubscription.unsubscribe();
   }
 
   randomWord() {
     this.getRandomWordSubscription = this.ws.getRandomWord().subscribe(word => {
-      this.word = word;
+      // this.word = word;
+      this.router.navigateByUrl('/word/' + word.word);
     });
-    this.router.navigateByUrl('/word/' + this.word.word);
+
   }
 
 }

@@ -26,7 +26,7 @@ export class WordsService {
   }
 
   getRandomWord(): Observable<Word> {
-    return this.http.get<Word>(RAPID_API.endpoint + '?random=true').pipe(
+    return this.http.get<Word>(RAPID_API.endpoint + '?random=true&hasDetails=typeOf').pipe(
       catchError(() => of(undefined))
     );
   }
