@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1610043232746,
+  "timestamp": 1610106759616,
   "index": "/dictionary/index.html",
   "assetGroups": [
     {
@@ -51,9 +51,9 @@
       "patterns": [
         "https:\\/\\/wordsapiv1\\.p\\.rapidapi\\.com\\/words\\/.*"
       ],
-      "strategy": "freshness",
+      "strategy": "performance",
       "maxSize": 100,
-      "maxAge": 864000000,
+      "maxAge": 31536000000,
       "timeoutMs": 1000,
       "cacheQueryOptions": {
         "ignoreVary": true
