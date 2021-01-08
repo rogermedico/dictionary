@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1610106759616,
+  "timestamp": 1610116047095,
   "index": "/dictionary/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/dictionary/favicon.ico",
         "/dictionary/index.html",
-        "/dictionary/main.f8b24d464b1fe214f0df.js",
+        "/dictionary/main.80b8f63447b299ee3a3f.js",
         "/dictionary/manifest.webmanifest",
         "/dictionary/polyfills.35a5ca1855eb057f016a.js",
         "/dictionary/runtime.acf0dec4155e77772545.js",
@@ -71,8 +71,8 @@
     "/dictionary/assets/icons/icon-72x72.png": "e44459c3fd473fcc18de8efc0137236693171a11",
     "/dictionary/assets/icons/icon-96x96.png": "6ae6c907dbc1286ffb16a5b39f352c5fdb9a7e68",
     "/dictionary/favicon.ico": "9cfb771e59fab54b6239b8734010862e56143955",
-    "/dictionary/index.html": "aa578f504e64467997c11d6e53616166f9eb6683",
-    "/dictionary/main.f8b24d464b1fe214f0df.js": "98e6685a4dcac3657f4eb621b46548010cbf39d8",
+    "/dictionary/index.html": "495feef06b32595782a18eb3357f42f74e86a226",
+    "/dictionary/main.80b8f63447b299ee3a3f.js": "e81d3f3d467c7a3ce6c0d6fb2685c196d073d62c",
     "/dictionary/manifest.webmanifest": "31ec15135d4857073f1bbd15514fea3a3ecbd79e",
     "/dictionary/polyfills.35a5ca1855eb057f016a.js": "578360d24ce37383f261c7ef63b1f822d28e8dde",
     "/dictionary/runtime.acf0dec4155e77772545.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
