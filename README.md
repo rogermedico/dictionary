@@ -1,6 +1,6 @@
 # Dictionary
 
-This project is an English Dictionary that uses the [WordsAPI](https://www.wordsapi.com/) information to display the results. It has a random word button and stores the last 10 searches.
+This project is an English Dictionary that uses the [WordsAPI](https://www.wordsapi.com/) information to display the results. It has a random word button and stores the last 10 searches. The project is also a PWA that can be installed into browsers and mobile phones.
 
 
 ## Requirements
@@ -19,6 +19,7 @@ Using the Terminal, navigate to the project folder and run `npm install`.
 
 * Uses [Angular](https://angular.io/) as a JS framework.
 * Uses some features from [Bootstrap](https://getbootstrap.com/) and some components from [Angular Material](https://material.angular.io/) as a CSS framework.
+* The project is a PWA.
 * NPM scripts for fast development and production build (see Commands below).
 
 
@@ -32,4 +33,4 @@ Using the Terminal, navigate to the project folder and run `npm install`.
 
 ## Live example
 
-[https://sleepy-kare-3d5f8a.netlify.app/](https://sleepy-kare-3d5f8a.netlify.app/)
+[https://jovial-brahmagupta-565dd0.netlify.app/](https://jovial-brahmagupta-565dd0.netlify.app/)
