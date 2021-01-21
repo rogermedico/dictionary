@@ -1,27 +1,35 @@
 # Dictionary
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+This project is an English Dictionary that uses the [WordsAPI](https://www.wordsapi.com/) information to display the results. It has a random word button and stores the last 10 searches.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Requirements
 
-## Code scaffolding
+[Node.js](http://nodejs.org/) >= 10.15.x
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Getting started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Clone this repository with `git clone`, or download a .zip file using the top right green button.
 
-## Running unit tests
+Using the Terminal, navigate to the project folder and run `npm install`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Features
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+* Uses [Angular](https://angular.io/) as a JS framework.
+* Uses some features from [Bootstrap](https://getbootstrap.com/) and some components from [Angular Material](https://material.angular.io/) as a CSS framework.
+* NPM scripts for fast development and production build (see Commands below).
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Commands
+
+| Command | Description |
+|---------|-------------|
+| `npm run start` | Runs a local web server for development and opens the browser to display it. Automatically compiles styles and scripts whenever a file in `src/` is changed, and live reloads the browser. This is what *must be run* on the development stage. |
+| `npm run build` | Compiles, minifies and optimizes the project. Use the `--prod` flag for a production build. These files are the ones that must be used to deploy on production. |
+
+
+## Live example
+
+[https://sleepy-kare-3d5f8a.netlify.app/](https://sleepy-kare-3d5f8a.netlify.app/)

@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "ng build --prod --base-href /dictionary/ --outputPath=docs --outputHashing=all",
+    "build": "ng build --prod --base-href ./ --outputPath=dist --outputHashing=all",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
