@@ -9,6 +9,7 @@ services:
         UID: $U_ID
     ports:
       - 8080:80
+      - 4200:4200
     volumes:
       - .docker/apache/000-default_dev.allow_all.conf:/etc/apache2/sites-available/000-default.conf:ro
       - .docker/php/conf/memory_limit.ini:/usr/local/etc/php/conf.d/memory_limit.ini:ro
